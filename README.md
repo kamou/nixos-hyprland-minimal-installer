@@ -1,6 +1,6 @@
 ### Hyprland NixOS Image Builder
 
-This repository allows for building custom hyprland NixOS system images. (iso and VM)
+This repository allows for building custom hyprland NixOS system images. (ISO installer and VM)
 
 ### Using `profile.nix` to Configure the Environment
 
@@ -39,7 +39,7 @@ To generate a QEMU virtual machine from your config, first edit configuraion/pro
 Then, run the following command:
 
 ```bash
-nixos-rebuild build-vm -I nixos-config=./configuration.nix
+nixos-rebuild build-vm -I nixos-config=./configuration/configuration.nix
 ```
 
 - After building, you’ll see an output such as:
