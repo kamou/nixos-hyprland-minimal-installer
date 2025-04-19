@@ -1,4 +1,4 @@
 {
   mode = "laptop";
-  vm = true;
+  # vm = true;
 }
