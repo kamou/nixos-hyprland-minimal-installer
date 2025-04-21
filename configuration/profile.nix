@@ -1,4 +1,1 @@
-{
-  mode = "laptop";
-  vm = false;
-}
+{ mode = "laptop"; }

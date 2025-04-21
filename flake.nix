@@ -7,12 +7,22 @@
   outputs = { self, nixpkgs, ... }:
     let system = "x86_64-linux";
     in {
-      nixosConfigurations.installer = nixpkgs.lib.nixosSystem {
+      isoImage = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma5.nix"
           ./installer/embed-flake.nix
         ];
+      };
+
+      vmImage = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ ./vm.nix ./configuration/configuration.nix ];
+      };
+
+      packages.${system} = {
+        iso = self.isoImage.config.system.build.isoImage;
+        vm = self.vmImage.config.system.build.vm;
       };
     };
 }
