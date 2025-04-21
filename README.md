@@ -38,23 +38,5 @@ To generate a QEMU virtual machine from your config, run the following command:
 nix build .#vm
 ```
 
-By default, the generated `run-nixos-vm` script (in result/bin/) allocates a disk image with size `1024M`. For most use cases, this is too small.
-
-#### To Use a Larger VM Disk
-
-1. Copy the generated `run-nixos-vm` script somewhere editable.
-2. Edit the following line:
-
-   ```bash
-   createEmptyFilesystemImage "$NIX_DISK_IMAGE" "1024M"
-   ```
-
-   Change to, e.g.:
-
-   ```bash
-   createEmptyFilesystemImage "$NIX_DISK_IMAGE" "16G"
-   ```
-
-   This allocates a 16 GiB disk image.
-
-3. Run your edited script to launch the VM.
+The generated `run-nixos-vm` script to run the VM is stored in `result/bin/`
+VM settings (such as memory size, cpu count etc...) can be tweaked in `vm.nix`
