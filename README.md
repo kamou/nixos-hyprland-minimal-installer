@@ -38,5 +38,11 @@ To generate a QEMU virtual machine from your config, run the following command:
 nix build .#vm
 ```
 
+or, for a headless alternative:
+
+```bash
+nix build .#hvm
+```
+
 The generated `run-nixos-vm` script to run the VM is stored in `result/bin/`
 VM settings (such as memory size, cpu count etc...) can be tweaked in `vm.nix`

@@ -1,4 +1,4 @@
-{
+{ headless, ... }: {
 
   users.users.nixos = {
     isNormalUser = true;
@@ -20,8 +20,8 @@
     virtualisation.memorySize = 8096;
     virtualisation.diskSize = 16384;
     # 4 cpus
-    virtualisation.cores = 4;
+    virtualisation.cores = 2;
     # for headless mode
-    # virtualisation.graphics = false;
+    virtualisation.graphics = !headless;
   };
 }
